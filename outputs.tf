@@ -1,7 +1,9 @@
 output "instance_id" {
-  value = module.ec2_private_instance.instance_id
+  description = "ID of the EC2 instance"
+  value       = module.ec2_private_instance.instance_id
 }
 
 output "private_ip" {
-  value = module.ec2_private_instance.private_ip
+  description = "Private IP of the EC2 instance"
+  value       = module.ec2_private_instance.private_ip
 }
