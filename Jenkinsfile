@@ -8,17 +8,17 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                sh 'cd terraform && terraform init'
+                sh 'terraform init'
             }
         }
         stage('Terraform Plan') {
             steps {
-                sh 'cd terraform && terraform plan -out=tfplan'
+                sh 'terraform plan -out=tfplan'
             }
         }
         stage('Terraform Apply') {
             steps {
-                sh 'cd terraform && terraform apply -auto-approve tfplan'
+                sh 'terraform apply -auto-approve tfplan'
             }
         }
     }
