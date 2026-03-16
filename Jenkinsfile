@@ -6,11 +6,6 @@ pipeline {
         AWS_DEFAULT_REGION    = 'ap-south-1'
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/your-org/terraform-repo.git'
-            }
-        }
         stage('Terraform Init') {
             steps {
                 sh 'cd terraform && terraform init'
@@ -25,14 +20,6 @@ pipeline {
             steps {
                 sh 'cd terraform && terraform apply -auto-approve tfplan'
             }
-        }
-    }
-    post {
-        success {
-            echo "Terraform apply completed successfully!"
-        }
-        failure {
-            echo "Pipeline failed. Check logs."
         }
     }
 }
